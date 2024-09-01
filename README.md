@@ -80,10 +80,20 @@ npm run dev
 El proyecto ha sido desplegado en la nube. Puedes acceder a la API en la siguiente URL: https://taller-nodejs-12a6443008f1.herokuapp.com .
 
 ## Pruebas
-Se incluye un archivo JSON de Postman en la raíz del proyecto (postman_test.json) que contiene pruebas de cada una de las funcionalidades de la API.
+Se incluye un archivo JSON de Postman en la raíz del proyecto (TallerNodeJS.json) que contiene pruebas de cada una de las funcionalidades de la API.
+Este archivo contiene todas las solicitudes y scripts de test utilizados para validar la funcionalidad de la API.
 
 Aqui un ScreenShot de referencia para entender como fueron tomadas las pruebas : 
 ![image](https://github.com/user-attachments/assets/4e2f3686-fe0b-4b9e-b22c-1bf01e79dab1)
+
+ 
+**Cómo importar el archivo de Postman**
+
+1. Abre Postman.
+2. Haz clic en "Import" en la parte superior izquierda.
+3. Selecciona el archivo `TallerNodeJS.json` .
+4. Ejecuta las pruebas desde la colección importada.
+
 
 
 ## Limitaciones y Dificultades
