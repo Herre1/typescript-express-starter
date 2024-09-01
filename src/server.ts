@@ -13,6 +13,9 @@ const app = express();
 // Middleware para parsear JSON
 app.use(express.json());
 
+// Configura CORS
+
+
 // Conectar a MongoDB
 mongoose.connect(process.env.MONGODB_URI || 'mongodb+srv://mahupa25:6kfZ3biiVNVnr0MH@cluster0.xb2gvt9.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
 
@@ -35,5 +38,8 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+
 
 export default app;

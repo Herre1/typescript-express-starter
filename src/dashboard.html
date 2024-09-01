@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control de Usuarios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #userList {
+            list-style-type: none;
+            padding: 0;
+        }
+        #userList li {
+            background-color: #f9f9f9;
+            margin-bottom: 5px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Panel de Control de Usuarios</h1>
+        
+        <h2>Iniciar Sesión</h2>
+        <form id="loginForm">
+            <input type="text" id="loginUsername" placeholder="Nombre de usuario o email" required>
+            <input type="password" id="loginPassword" placeholder="Contraseña" required>
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+
+        <h2>Registrarse</h2>
+        <form id="registerForm">
+            <input type="text" id="registerUsername" placeholder="Nombre de usuario" required>
+            <input type="email" id="registerEmail" placeholder="Correo electrónico" required>
+            <input type="password" id="registerPassword" placeholder="Contraseña" required>
+            <button type="submit">Registrarse</button>
+        </form>
+
+        <h2>Lista de Usuarios</h2>
+        <ul id="userList"></ul>
+    </div>
+
+    <script>
+        
+        // URL base de tu API
+        const API_URL = 'http://localhost:3000'; // Ajusta esto según tu configuración
+
+        let authToken = '';
+
+        // Función para iniciar sesión
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            try {
+                const response = await fetch(`${API_URL}/users/login`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    alert('Inicio de sesión exitoso');
+                    authToken = data.token; // Asumiendo que tu API devuelve un token
+                    loadUsers(); // Cargar usuarios después de iniciar sesión
+                } else {
+                    alert(`Error: ${data.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al iniciar sesión');
+            }
+        });
+
+        // Función para registrarse
+        document.getElementById('registerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const username = document.getElementById('registerUsername').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            try {
+                const response = await fetch(`${API_URL}/users/register`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, email, password })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    alert('Registro exitoso');
+                    // Podrías iniciar sesión automáticamente aquí si lo deseas
+                } else {
+                    alert(`Error: ${data.message}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Error al registrarse');
+            }
+        });
+
+        // Función para cargar la lista de usuarios
+        async function loadUsers() {
+            if (!authToken) {
+                alert('Debes iniciar sesión primero');
+                return;
+            }
+            try {
+                const response = await fetch(`${API_URL}/users/`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                if (response.ok) {
+                    const users = await response.json();
+                    const userList = document.getElementById('userList');
+                    userList.innerHTML = '';
+                    users.forEach(user => {
+                        const li = document.createElement('li');
+                        li.textContent = `${user.username} - ${user.email} - Rol: ${user.role}`;
+                        userList.appendChild(li);
+                    });
+                } else {
+                    alert('No tienes permiso para ver la lista de usuarios');
+                }
+            } catch (error) {
+                console.error('Error al cargar usuarios:', error);
+            }
+        }
+    </script>
+</body>
+</html>
