@@ -1,0 +1,1605 @@
+{
+	"info": {
+		"_postman_id": "62c92ec2-0214-4584-b808-dc2e297b3b73",
+		"name": "TallerNodeJS",
+		"description": "Manuel Herrera - A00381987",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32947682"
+	},
+	"item": [
+		{
+			"name": "RegisterUserAdmin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"User registered successfully\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"    const responseData = pm.response.json();\r",
+							"    pm.expect(responseData).to.have.property('username', 'Eduardo Torres');\r",
+							"    pm.expect(responseData).to.have.property('email', 'eduto@hotmail.co');\r",
+							"    pm.environment.set(\"userId\", responseData._id); // Guarda el ID del usuario\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Eduardo Torres\",\r\n  \"email\": \"eduto@hotmail.co\",\r\n  \"password\": \"edu1234\",\r\n  \"role\":  \"superadmin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				},
+				"description": "Intentamos crear un usuario superadmin para probar si el registro y la validacion sirve."
+			},
+			"response": [
+				{
+					"name": "RegisterUserAdmin",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Eduardo Torres\",\r\n  \"email\": \"eduto@hotmail.co\",\r\n  \"password\": \"edu1234\",\r\n  \"role\":  \"superadmin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "269"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10d-qW89nOnNlQR3qBw13ylrNCQK88w\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 21:16:24 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"Eduardo Torres\",\n    \"email\": \"eduto@hotmail.co\",\n    \"password\": \"$2b$10$FW2sc98xcdv8SB74drWzKelHSOW69cJzfSjll.GuQeybAPuR5.qXG\",\n    \"role\": \"superadmin\",\n    \"_id\": \"66d4d9a852306f13646c7027\",\n    \"createdAt\": \"2024-09-01T21:16:24.134Z\",\n    \"updatedAt\": \"2024-09-01T21:16:24.134Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "RegisterUserRegular",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"User registered successfully\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"    const responseData = pm.response.json();\r",
+							"    pm.expect(responseData).to.have.property('username', 'Montarey Monsa');\r",
+							"    pm.expect(responseData).to.have.property('email', 'montensa@hotmail.co');\r",
+							"    pm.environment.set(\"userId\", responseData._id); // Guarda el ID del usuario\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Montarey Monsa\",\r\n  \"email\": \"montesa@hotmail.co\",\r\n  \"password\": \"montesa123\",\r\n  \"role\":  \"regular\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"register"
+					]
+				},
+				"description": "Intentamos crear un usuario REGULAR para probar si el registro y la validacion sirve."
+			},
+			"response": [
+				{
+					"name": "RegisterUserRegular",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Montarey Monsa\",\r\n  \"email\": \"montesa@hotmail.co\",\r\n  \"password\": \"montesa123\",\r\n  \"role\":  \"regular\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"register"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "268"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10c-wD2KYdW8lvtEeiDGFIO5uBq/ZEc\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 21:15:48 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"username\": \"Montarey Monsa\",\n    \"email\": \"montesa@hotmail.co\",\n    \"password\": \"$2b$10$lA5fELdlXpVKtkJg2Pi3yONZPg21kPxYE.wlQqagqmiZ0mngsex/y\",\n    \"role\": \"regular\",\n    \"_id\": \"66d4d98452306f13646c7025\",\n    \"createdAt\": \"2024-09-01T21:15:48.644Z\",\n    \"updatedAt\": \"2024-09-01T21:15:48.644Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"eduto@hotmail.co\",\r\n  \"password\": \"edu1234\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "LoginToken",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"eduto@hotmail.co\",\r\n  \"password\": \"edu1234\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "215"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"d7-/wSx1nbzuP9BgN8+g6J1ExZyaeM\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 21:22:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw\"\n}"
+				}
+			]
+		},
+		{
+			"name": "UserUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"Monsa Montereina\",\r\n  \"email\": \"montesa@hotmail.co\",\r\n  \"password\": \"montesa123\",\r\n  \"role\":  \"superadmin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/66d4de2152306f13646c702d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"66d4de2152306f13646c702d"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UserUpdate",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Monsa Montereina\",\r\n  \"email\": \"montesa@hotmail.co\",\r\n  \"password\": \"montesa123\",\r\n  \"role\":  \"superadmin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/users/66d4de2152306f13646c702d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66d4de2152306f13646c702d"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "223"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"df-sxvWHe6mmXghwkeLzD8sb8tGfrA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 21:36:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"66d4de2152306f13646c702d\",\n    \"username\": \"Monsa Montereina\",\n    \"email\": \"montesa@hotmail.co\",\n    \"password\": \"montesa123\",\n    \"role\": \"superadmin\",\n    \"createdAt\": \"2024-09-01T21:35:29.105Z\",\n    \"updatedAt\": \"2024-09-01T21:36:42.075Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "UserDelete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/users/66d4de2152306f13646c702d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"66d4de2152306f13646c702d"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "UserDelete",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users/66d4de2152306f13646c702d",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66d4de2152306f13646c702d"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "39"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"27-27o4zzUjhHNmthTJyia4gBCjpos\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 21:37:27 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"User deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "GetAllUsers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetAllUsers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1587"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"633-8X1BStPzKL0eplxpLBiF28wiS6U\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 21:41:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"66d495c3cc2bdb0f14c94650\",\n        \"username\": \"Manuel Herrera\",\n        \"email\": \"mahupa25@gmail.com\",\n        \"password\": \"$2b$10$F1hp494y58O90WIsErl8hOMpjOTfZKskweDxpLIrfPAwO8xBjzX/2\",\n        \"role\": \"superadmin\",\n        \"createdAt\": \"2024-09-01T16:26:43.941Z\",\n        \"updatedAt\": \"2024-09-01T16:26:43.941Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66d4c9759b4d69df0f6142ce\",\n        \"username\": \"Miguel\",\n        \"email\": \"migelintin@hotmail.co\",\n        \"password\": \"$2b$10$NK0ccK4BnTd64I1w1nwMJOeUw3DaLjEoRW5fwR0TaHDYIkcrogJAa\",\n        \"role\": \"regular\",\n        \"createdAt\": \"2024-09-01T20:07:17.405Z\",\n        \"updatedAt\": \"2024-09-01T20:07:17.405Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66d4cbb49b4d69df0f6142d4\",\n        \"username\": \"Sara\",\n        \"email\": \"laurasara@hotmail.co\",\n        \"password\": \"$2b$10$l24phMh/Na6s6PY.v6HzouYKOztAcKtDQUu9G/Ml47/3Gn7i6BJEO\",\n        \"role\": \"regular\",\n        \"createdAt\": \"2024-09-01T20:16:52.221Z\",\n        \"updatedAt\": \"2024-09-01T20:16:52.221Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66d4cc179b4d69df0f6142d8\",\n        \"username\": \"Lara\",\n        \"email\": \"laraa@hotmail.co\",\n        \"password\": \"$2b$10$kbtRGFjRXuLzVG5f37pZ5O9iPIgDS5ELK9kTcw3waEEOurcQSbTw.\",\n        \"role\": \"regular\",\n        \"createdAt\": \"2024-09-01T20:18:31.723Z\",\n        \"updatedAt\": \"2024-09-01T20:18:31.723Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66d4cc419b4d69df0f6142da\",\n        \"username\": \"montona\",\n        \"email\": \"montona@hotmail.co\",\n        \"password\": \"$2b$10$nuQjY7R0e9TLDqkhVkQgS.qTa8leBPg213LBD1FzlqQ.7J/jPtBja\",\n        \"role\": \"regular\",\n        \"createdAt\": \"2024-09-01T20:19:13.459Z\",\n        \"updatedAt\": \"2024-09-01T20:19:13.459Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66d4d9a852306f13646c7027\",\n        \"username\": \"Eduardo Torres\",\n        \"email\": \"eduto@hotmail.co\",\n        \"password\": \"$2b$10$FW2sc98xcdv8SB74drWzKelHSOW69cJzfSjll.GuQeybAPuR5.qXG\",\n        \"role\": \"superadmin\",\n        \"createdAt\": \"2024-09-01T21:16:24.134Z\",\n        \"updatedAt\": \"2024-09-01T21:16:24.134Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "GetUserById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/users/66d4cc419b4d69df0f6142da",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"66d4cc419b4d69df0f6142da"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetUserById",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/users/66d4cc419b4d69df0f6142da",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"users",
+								"66d4cc419b4d69df0f6142da"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "261"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"105-Gv3WiFevtP4CQwimoA41ZXcayC8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 21:47:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"66d4cc419b4d69df0f6142da\",\n    \"username\": \"montona\",\n    \"email\": \"montona@hotmail.co\",\n    \"password\": \"$2b$10$nuQjY7R0e9TLDqkhVkQgS.qTa8leBPg213LBD1FzlqQ.7J/jPtBja\",\n    \"role\": \"regular\",\n    \"createdAt\": \"2024-09-01T20:19:13.459Z\",\n    \"updatedAt\": \"2024-09-01T20:19:13.459Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "CreateComment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content\": \"Muy Bueno Gracias\",\r\n  \"author\": \"66d4de2152306f13646c702d\",\r\n  \"parentComment\": null, \r\n  \"replies\": []\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "CreateComment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"content\": \"Muy Bueno Gracias\",\r\n  \"author\": \"66d4de2152306f13646c702d\",\r\n  \"parentComment\": null, \r\n  \"replies\": []\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comments"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "220"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"dc-kQhGePGSbVXad8a5D4Kxzg2QZXE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 22:27:25 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"content\": \"Muy Bueno Gracias\",\n    \"author\": \"66d4d9a852306f13646c7027\",\n    \"parentComment\": null,\n    \"replies\": [],\n    \"_id\": \"66d4ea4c52306f13646c7034\",\n    \"createdAt\": \"2024-09-01T22:27:24.324Z\",\n    \"updatedAt\": \"2024-09-01T22:27:24.324Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "GetCommentById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/comments/66d4ea4c52306f13646c7034",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comments",
+						"66d4ea4c52306f13646c7034"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetCommentById",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/comments/66d4ea4c52306f13646c7034",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comments",
+								"66d4ea4c52306f13646c7034"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "256"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"100-MMnfQRseHlDwbDP13ixojfHagRY\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 22:30:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"66d4ea4c52306f13646c7034\",\n    \"content\": \"Muy Bueno Gracias\",\n    \"author\": {\n        \"_id\": \"66d4d9a852306f13646c7027\",\n        \"username\": \"Eduardo Torres\"\n    },\n    \"parentComment\": null,\n    \"replies\": [],\n    \"createdAt\": \"2024-09-01T22:27:24.324Z\",\n    \"updatedAt\": \"2024-09-01T22:27:24.324Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "GetAllComments",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content\": \"Este es el comentario actualizado.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/comments",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comments"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetAllComments",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"content\": \"Este es el comentario actualizado.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comments"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "535"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"217-Qnox7BqLf0FrkkGq3TScogzkEJs\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 22:33:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"66d4b52c88bf972abb9bbea8\",\n        \"content\": \"Comentario de prueba\",\n        \"author\": {\n            \"_id\": \"66d495c3cc2bdb0f14c94650\",\n            \"username\": \"Manuel Herrera\"\n        },\n        \"parentComment\": null,\n        \"replies\": [],\n        \"createdAt\": \"2024-09-01T18:40:44.366Z\",\n        \"updatedAt\": \"2024-09-01T18:40:44.366Z\",\n        \"__v\": 0\n    },\n    {\n        \"_id\": \"66d4ea4c52306f13646c7034\",\n        \"content\": \"Este es el comentario actualizado.\",\n        \"author\": {\n            \"_id\": \"66d4d9a852306f13646c7027\",\n            \"username\": \"Eduardo Torres\"\n        },\n        \"parentComment\": null,\n        \"replies\": [],\n        \"createdAt\": \"2024-09-01T22:27:24.324Z\",\n        \"updatedAt\": \"2024-09-01T22:32:17.811Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "CommentUpdate",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"content\": \"Este es el comentario actualizado.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/comments/66d4ea4c52306f13646c7034",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comments",
+						"66d4ea4c52306f13646c7034"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "GetCommentById",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"content\": \"Este es el comentario actualizado.\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/comments/66d4ea4c52306f13646c7034",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comments",
+								"66d4ea4c52306f13646c7034"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "237"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ed-ummR5k1vE83JBa134zdiOwi7vgU\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 22:32:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"66d4ea4c52306f13646c7034\",\n    \"content\": \"Este es el comentario actualizado.\",\n    \"author\": \"66d4d9a852306f13646c7027\",\n    \"parentComment\": null,\n    \"replies\": [],\n    \"createdAt\": \"2024-09-01T22:27:24.324Z\",\n    \"updatedAt\": \"2024-09-01T22:32:17.811Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "ReplyComment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"userId\": \"66d4cbb49b4d69df0f6142d4\",\r\n  \"content\": \"Esta es una respuesta al comentario.\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/comments/66d4ea4c52306f13646c7034/reply",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comments",
+						"66d4ea4c52306f13646c7034",
+						"reply"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ReplyComment",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"66d4cbb49b4d69df0f6142d4\",\r\n  \"content\": \"Esta es una respuesta al comentario.\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/comments/66d4ea4c52306f13646c7034/reply",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comments",
+								"66d4ea4c52306f13646c7034",
+								"reply"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "263"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"107-Rl0tRas184GEPQpPnn76KOcCbxg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 22:36:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"_id\": \"66d4ea4c52306f13646c7034\",\n    \"content\": \"Este es el comentario actualizado.\",\n    \"author\": \"66d4d9a852306f13646c7027\",\n    \"parentComment\": null,\n    \"replies\": [\n        \"66d4ec7552306f13646c703b\"\n    ],\n    \"createdAt\": \"2024-09-01T22:27:24.324Z\",\n    \"updatedAt\": \"2024-09-01T22:36:37.361Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "DeleteComment",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/comments/66d4b52c88bf972abb9bbea8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"comments",
+						"66d4b52c88bf972abb9bbea8"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "DeleteComment",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/comments/66d4b52c88bf972abb9bbea8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"comments",
+								"66d4b52c88bf972abb9bbea8"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "42"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2a-kae3SxLlaCR7CeYz32LJVsXhrGg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 22:40:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Comment deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "ReactionCreate",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"like\" ,\r\n  \"user\": \"66d4c9759b4d69df0f6142ce\" ,\r\n  \"comment\" : \"66d4d9a852306f13646c7027\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/reactions/66d4d9a852306f13646c7027",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reactions",
+						"66d4d9a852306f13646c7027"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ReactionCreate",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"type\": \"like\" ,\r\n  \"user\": \"66d4c9759b4d69df0f6142ce\" ,\r\n  \"comment\" : \"66d4d9a852306f13646c7027\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/reactions/66d4d9a852306f13646c7027",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"reactions",
+								"66d4d9a852306f13646c7027"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "205"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"cd-36+CpEKXOxu91G/CzGFVQaRsc5Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 22:54:57 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"type\": \"like\",\n    \"user\": \"66d4d9a852306f13646c7027\",\n    \"comment\": \"66d4d9a852306f13646c7027\",\n    \"_id\": \"66d4f0c152306f13646c7045\",\n    \"createdAt\": \"2024-09-01T22:54:57.539Z\",\n    \"updatedAt\": \"2024-09-01T22:54:57.539Z\",\n    \"__v\": 0\n}"
+				}
+			]
+		},
+		{
+			"name": "ReactionGet",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/reactions/66d4d9a852306f13646c7027",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reactions",
+						"66d4d9a852306f13646c7027"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ReactionGet",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/reactions/66d4d9a852306f13646c7027",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"reactions",
+								"66d4d9a852306f13646c7027"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "243"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"f3-uZhnp/fvZvK31Kg06vvi1fRVLoA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 22:56:16 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"_id\": \"66d4f0c152306f13646c7045\",\n        \"type\": \"like\",\n        \"user\": {\n            \"_id\": \"66d4d9a852306f13646c7027\",\n            \"username\": \"Eduardo Torres\"\n        },\n        \"comment\": \"66d4d9a852306f13646c7027\",\n        \"createdAt\": \"2024-09-01T22:54:57.539Z\",\n        \"updatedAt\": \"2024-09-01T22:54:57.539Z\",\n        \"__v\": 0\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "ReactionDelete",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/reactions/66d4d9a852306f13646c7027",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"reactions",
+						"66d4d9a852306f13646c7027"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "ReactionDelete",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NmQ0ZDlhODUyMzA2ZjEzNjQ2YzcwMjciLCJyb2xlIjoic3VwZXJhZG1pbiIsImlhdCI6MTcyNTIyNTc2MCwiZXhwIjoxNzI1MzEyMTYwfQ.L8g7Yzh0Hnpaz4345kaAEMxwScUM5GWGMvuSmP9aVPw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/reactions/66d4f0c152306f13646c7045",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"reactions",
+								"66d4f0c152306f13646c7045"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "43"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2b-ZXXR8NYgQww+CDRCFxvw5XD4SZI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sun, 01 Sep 2024 22:57:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Reaction deleted successfully\"\n}"
+				}
+			]
+		}
+	]
+}

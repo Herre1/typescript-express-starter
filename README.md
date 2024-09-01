@@ -91,7 +91,7 @@ Aqui un ScreenShot de referencia para entender como fueron tomadas las pruebas :
 
 1. Abre Postman.
 2. Haz clic en "Import" en la parte superior izquierda.
-3. Selecciona el archivo `TallerNodeJS.json` .
+3. Selecciona el archivo `TallerNodeJS.postman_collection.json` .
 4. Ejecuta las pruebas desde la colección importada.
 
 
