@@ -77,7 +77,7 @@ npm run dev
 - Reacciones a Comentarios: Sistema para que los usuarios reaccionen a los comentarios.
 
 ## Despliegue
-El proyecto ha sido desplegado en la nube. Puedes acceder a la API en la siguiente URL: https://taller-nodejs-12a6443008f1.herokuapp.com .
+El proyecto ha sido desplegado con railway en la nube . Puedes acceder a la API en la siguiente URL:typescript-express-starter-production.up.railway.app.
 
 ## Pruebas
 Se incluye un archivo JSON de Postman en la raíz del proyecto (TallerNodeJS.json) que contiene pruebas de cada una de las funcionalidades de la API.
